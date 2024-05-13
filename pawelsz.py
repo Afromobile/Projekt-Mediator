@@ -42,7 +42,7 @@ class User:
         print(f"{self.name} receives: {message}")
 
 
-if name == "main":
+if __name__ == "__main__":
     # Tworzenie mediatora czatu
     chat_mediator = ChatRoomMediator()
 
