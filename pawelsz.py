@@ -21,24 +21,20 @@ class ChatRoomMediator:
 
 
 class User:
-    """
-    @brief Klasa reprezentująca użytkownika czatu.
-
-    Klasa User reprezentuje użytkownika czatu, który może wysyłać i odbierać
-    wiadomości za pośrednictwem mediatora czatu.
-    """
     def __init__(self, mediator, name):
-        """Inicjalizuje użytkownika z podanym mediatorem i imieniem."""
         self.mediator = mediator
         self.name = name
+        self.messages_sent = 0 
 
     def send_message(self, message):
-        """Wysyła wiadomość do wszystkich użytkowników czatu."""
-        print(f"{self.name} sends: {message}")
-        self.mediator.send_message(self, message)
+        if self.name == "Eryk" and self.messages_sent >= 1:
+            print(f"{self.name} próbował wysłać więcej niż jedną wiadomość.")
+        else:
+            print(f"{self.name} sends: {message}")
+            self.mediator.send_message(self, message)
+            self.messages_sent += 1  
 
     def receive_message(self, message):
-        """Odbiera wiadomość od innego użytkownika czatu."""
         print(f"{self.name} receives: {message}")
 
 
